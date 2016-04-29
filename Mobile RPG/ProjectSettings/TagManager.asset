@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Cave
+  - World
   layers:
   - Default
   - TransparentFX
@@ -43,6 +45,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 4208918435
+    locked: 0
+  - name: Buildings
+    uniqueID: 1812447851
     locked: 0
   - name: NPCs
     uniqueID: 3573122969

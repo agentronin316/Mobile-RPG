@@ -50,7 +50,7 @@ public class CameraFollow : MonoBehaviour {
             targetX = Mathf.Clamp(targetX, minXAndY.x, maxXAndY.x);
             targetY = Mathf.Clamp(targetY, minXAndY.y, maxXAndY.y);
 
-        transform.position = new Vector3(targetX, targetY);
+        transform.position = new Vector3(targetX, targetY, transform.position.z);
     }
 
 
