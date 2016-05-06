@@ -1,14 +1,21 @@
 ﻿using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
+
+public struct Route
+{
+    public string routeDescription;
+    public bool canTravel;
+}
+
 public static class NavigationManager{
 
     //List of all the places in the game
-    public static Dictionary<string, string> RouteInformation = new Dictionary<string, string>()
+    public static Dictionary<string, Route> RouteInformation = new Dictionary<string, Route>()
     {
-        {"World",  "the big bad world"},
-        {"Cave", "the deep dark cave"},
-        {"Home Town", "your hometown"}
+        {"World",  new Route { routeDescription = "the big bad world", canTravel = true } },
+        {"Cave", new Route { routeDescription = "the deep dark cave", canTravel = false } },
+        {"Home Town", new Route { routeDescription = "your hometown", canTravel = true } }
     };
 
     /// <summary>
@@ -18,7 +25,7 @@ public static class NavigationManager{
     /// <returns>Returns the text to display in the prompt</returns>
     public static string GetRouteInformation(string destination)
     {
-        return RouteInformation.ContainsKey(destination) ? RouteInformation[destination] : null;
+        return RouteInformation.ContainsKey(destination) ? RouteInformation[destination].routeDescription : null;
     }
 
     //Will complete later
@@ -29,7 +36,7 @@ public static class NavigationManager{
     /// <returns>Returns if the player is able to travel to a destination</returns>
     public static bool CanNavigate(string destination)
     {
-        return true;
+        return RouteInformation.ContainsKey(destination) ? RouteInformation[destination].canTravel : false;
     }
 
     /// <summary>
